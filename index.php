@@ -28,21 +28,18 @@
                         </div>
                         <button type="button" class="btn btn-outline-primary" @click.capture="fetchData(1, displayPage)">Retrieve</button>
                     </div>
+                    <!--
                     <div class="form-inline">
                         <div class="form-check mb-2 mr-sm-2 mb-sm-0">
                             <label class="form-check-label">
-                          <input class="form-check-input" v-model="filtered" type="checkbox" @click="filtredVideos"> Filter user that have more than 10 like
+                          <input class="form-check-input" v-model="filtered" type="checkbox" @click="filtredVideos">> =10 likes
                         </label>
                         </div>
                     </div>
+                    -->
                 </div>
             </header>
-            <div class="o">
-                <div class="t" v-for="video in filtredVideos">
-                {{ video }}    
-                </div>
-                
-            </div>
+
             <div class="container">
                 <section class="feed-items row d-flex justify-content-center flex-column" v-if="user">
                     <div class="feed-single d-flex justify-content-center" v-for="(post, index) in feed">
@@ -107,7 +104,7 @@
 
     </div>
 
-    <script type="text/javascript" src="//cdn.jsdelivr.net/g/lodash@4.17.4,vue@2.3.2,jquery@3.2.1,momentjs@2.18.1,axios@0.16.1"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/g/lodash@4.17.4,vue@2.3.2,momentjs@2.18.1,axios@0.16.1"></script>
 
     <script type="text/javascript" src="js/app.js"></script>
 </body>

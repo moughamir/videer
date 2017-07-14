@@ -1,16 +1,12 @@
-/* global $ */
-/* global _ */
-/* global Vue */
-/* global moment */
-/* global axios */
-/* global btoa */
 'use strict';
-Vue.config.devtools = true;
-
+//Vue.config.devtools = true;
+/**
+ * Vimeo api configurattion
+ */ 
 const Api = 'https://api.vimeo.com';
 //const apiURL = '../exemple-data.json';
 let accessToken = 'NzQwYzcyNGRiMDk0YTEzY2Q1ZGM2MDU2YzNkMWZjNTVmZWQwOGRiYjpJZ1E0a3V3dUptNzRMZ2dOZFlkaFVZS1BsRVRHSEoxamQrL1k3YzY5Wm5YZUNFZVpOTmRxbGxudkVZcld3WWFmVEc1aUdlcjhSOXlGaWJ5U2tpZXNWQzR0eklJL0xRZlhDUFI4OVRqdEFab2VsQkRySnZWUU5mZkVranhJaFNPdw==';
-const displayPerPage = '10, 25, 50';
+
 /**
  * default settings for ajax client
  */
@@ -19,6 +15,7 @@ axios.defaults.headers.common['Authorization'] = 'basic ' + accessToken;
 
 /**
  * Default User Picture
+ * set default user picture if the user doesn't have one.
  */
 var defaultUserPicture = {
   'sizes': [{
@@ -39,12 +36,16 @@ var defaultUserPicture = {
     "link": "//via.placeholder.com/300x300?text=N/A"
   }]
 }
-
-
+//
+const displayPerPage = "10, 25, 50";
+/**
+ * Create Vue instance and run our logic
+ * 
+ * Todo: create distributable components and filters
+ */ 
 var app = new Vue({
 
   el: '#feed-app',
-  // item.user.pictures.sizes['2'].link
   data: {
     currentBranch: 'dev',
     loading: true,
@@ -59,9 +60,9 @@ var app = new Vue({
   },
   mounted() {
     this.fetchData(this.currentPage, this.displayPage);
-
   },
   methods: {
+    
     fetchData: function(displayPage, perPage) {
       var self = this;
       axios.get('/channels/top/videos', {
@@ -89,8 +90,6 @@ var app = new Vue({
     gotoPage: function(page){
       this.fetchData(page, this.displayPage);
     }
-    
-    
 
   },
   computed: {
@@ -104,6 +103,8 @@ var app = new Vue({
       var self = this;
       return Math.ceil(self.total / self.displayPage);
     },
+    // filter videos from users that have more than 10 likes.
+    //
     filtredVideos: function(){
      let self = this;
      _.filter(self.user, function(u){
@@ -128,9 +129,11 @@ var app = new Vue({
         return moment(String(value)).format('MM/DD/YYYY hh:mm');
       }
     },
+    // create a twitter like username
     pseudofy: function(value) {
       return '@' + _.last(_.words(value));
     },
+    // pagination
     paginate: function(list) {
       var self = this;
       self.total = list.length;
