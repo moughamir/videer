@@ -3,63 +3,94 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ViDeer</title>
-    <link rel="stylesheet" href="card.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/e55ab844c0.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="feed row" id="feed-app">
+            <header class="jumbotron jumbotron-fluid w-100">
+                <div class="container text-center">
+                    <h1 class="display-3">Fluid jumbotron</h1>
+                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </div>
+            </header>
 
-            <div class="col-6">
-                <div class="feed">
-                    <ol class="feed-items" v-if="feed">
-                        <li class="feed-single" v-for="item in feed">
-                            <div class="card">
-                                <div class="content">
-                                    <a :href="item.user.link">
-                                    <div class="feed-item--header">
-                                        
-                                            <img :src="item.user.pictures['sizes']['0'].link" :alt="item.user.name" class="feed-item__user-image">
-                                            <span class="feed-item__user-name">{{item.user.name}}</span> 
-                                            <small class="feed-item__date"> {{item.modified_time | dateformat}}</small>
-                                        
-                                        
-                                    </div>
-                                    </a>
-                                    <div class="feed-item--content">
-                                        <a :href="item.link" :title="item.name">
-                                            <div class="feed-item__video">
-                                                <div class="feed-item__video-picture">
-                                                    <img v-bind:src="item.pictures.sizes[2].link" :alt="item.name" />
-                                                </div>
-                                                <div class="feed-item__video-description">
-                                                    <p>{{item.description | truncate}}</p>
-                                                </div>
-                                            </div>
+
+            <div class="container">
+                <section class="feed-items row d-flex justify-content-center flex-column" v-if="user">
+                    <div class="feed-single d-flex justify-content-center" v-for="(post, index) in feed">
+                        <article class="card w-75 mb-1 mt-1">
+                            <div class="card-block p-2">
+                                <div class="media">
+                                    <a :href="post.user.link"><img class="user-picture d-flex mr-1 rounded-circle" :src="userPicture[index].sizes[1].link" :alt="post.user.name"></a>
+                                    <div class="media-body ">
+
+                                        <h5 class="mt-0 card-title"><a :href="post.user.link" class="">{{post.user.name}}&nbsp;<small class="text-muted">{{post.user.link | pseudofy}}</small></a></h5>
+
+
+
+                                        <a :href="post.link">
+                                            <h6 class="card-subtitle text-muted">{{post.name}}</h6>
                                         </a>
-                                    </div>
-                                    <div class="feed-item--footer">
-                                        <ul class="feed-item--meta">
-                                            <li class="feed-item--meta__likes"><span class="icon"><i class="fa fa-love"></i></span> {{item.metadata.connections.likes.total}}</li>
-                                            <li class="feed-item--meta__comments"><span class="icon"><i class="fa fa-comment"></i></span> {{item.metadata.connections.comments.total}}</li>
-                                            <li class="feed-item--meta__views"><span class="icon"><i class="fa fa-view"></i></span> {{item.stats.plays}}</li>
-                                        </ul>
+                                        <p class="card-text"><small class="text-muted">{{post.release_time | dateformat}}</small></p>
+                                        <p class="card-text">{{post.description | truncate}}</p>
+                                        <a :href="post.link">
+                                            <img :src="post.pictures.sizes['3'].link_with_play_button" class="img-fluid" :alt="post.name" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                            <footer class="card-footer text-muted">
+                                <ul class="nav  card-header-tabs nav-pills nav-fill">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-muted" href="#">
+                                            <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;{{post.metadata.connections.likes.total}}
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-muted" href="#">
+                                            <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;{{post.metadata.connections.comments.total}}
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-muted" href="#">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{post.stats.plays === null ? 'N/A' : null}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </footer>
+                        </article>
+                    </div>
+                </section>
 
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
                         </li>
-                    </ol>
-                </div>
-
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
+
+
         </div>
 
+    </div>
 
-        <script type="text/javascript" src="//cdn.jsdelivr.net/g/lodash@4.17.4,vue@2.3.2,vue.resource@1.3.1,jquery@3.2.1,momentjs@2.18.1"></script>
-        <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script-->
-        <script type="text/javascript" src="js/app.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/g/lodash@4.17.4,vue@2.3.2,jquery@3.2.1,momentjs@2.18.1,axios@0.16.1"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 
 </html>

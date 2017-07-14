@@ -1,0 +1,14 @@
+
+.feed {
+    background: black;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+    .card {
+        width: 100vw !important;
+    }
+    .user-picture {
+        width: 40px;
+        height: 40px;
+    }
+}
