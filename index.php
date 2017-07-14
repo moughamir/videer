@@ -11,19 +11,42 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="feed row" id="feed-app">
+            <div class="loading" v-if="loading">
+            </div>
             <header class="jumbotron jumbotron-fluid w-100">
                 <div class="container text-center">
-                    <h1 class="display-3">Fluid jumbotron</h1>
-                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+
+                    <div class="form-inline">
+                        <div class="form-group m-2">
+                            <strong>Posts per page</strong>
+                            <select class="form-control m-2" id="PostPerPage" v-model="displayPage">
+                            <option v-for="displayPage in displayPerPage" :value="displayPage">{{ displayPage }}</option>
+                        </select>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary" @click.capture="fetchData(1, displayPage)">Retrieve</button>
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+                            <label class="form-check-label">
+                          <input class="form-check-input" v-model="filtered" type="checkbox" @click="filtredVideos"> Filter user that have more than 10 like
+                        </label>
+                        </div>
+                    </div>
                 </div>
             </header>
-
-
+            <div class="o">
+                <div class="t" v-for="video in filtredVideos">
+                {{ video }}    
+                </div>
+                
+            </div>
             <div class="container">
                 <section class="feed-items row d-flex justify-content-center flex-column" v-if="user">
                     <div class="feed-single d-flex justify-content-center" v-for="(post, index) in feed">
+
                         <article class="card w-75 mb-1 mt-1">
                             <div class="card-block p-2">
                                 <div class="media">
@@ -70,17 +93,13 @@
 
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                        <li class="page-item" v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages - 1 || pageNumber == 0">
+                            <a class="page-link" href="#" @click.capture="gotoPage(setPage(pageNumber))" :class="{active: currentPage === pageNumber, last: (pageNumber == totalPages - 1 && Math.abs(pageNumber - currentPage) > 3), first:(pageNumber == 0 && Math.abs(pageNumber - currentPage) > 3)}">{{ pageNumber }}</a>
                         </li>
                     </ul>
                 </nav>
+
+
             </div>
 
 
@@ -88,8 +107,8 @@
 
     </div>
 
-
     <script type="text/javascript" src="//cdn.jsdelivr.net/g/lodash@4.17.4,vue@2.3.2,jquery@3.2.1,momentjs@2.18.1,axios@0.16.1"></script>
+
     <script type="text/javascript" src="js/app.js"></script>
 </body>
 

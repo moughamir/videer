@@ -5,17 +5,12 @@
 /* global axios */
 /* global btoa */
 'use strict';
-const Api = 'https://api.vimeo.com';
-const AuthUrl = Api + '/oauth/authorize';
-const AccessTokenUrl = Api + '/oauth/access_token';
-const clientId = '740c724db094a13cd5dc6056c3d1fc55fed08dbb';
-const clientSecret = 'IgQ4kuwuJm74LggNdYdhUYKPlETGHJ1jd+/Y7c69ZnXeCEeZNNdqllnvEYrWwYafTG5iGer8R9yFibySkiesVC4tzII/LQfXCPR89TjtAZoelBDrJvVQNffEkjxIhSOw';
-
 Vue.config.devtools = true;
-// var container = $('.feed-content');
+
+const Api = 'https://api.vimeo.com';
 //const apiURL = '../exemple-data.json';
-const apiURL = '/api';
-let accessToken = btoa(clientId + ':' + clientSecret);
+let accessToken = 'NzQwYzcyNGRiMDk0YTEzY2Q1ZGM2MDU2YzNkMWZjNTVmZWQwOGRiYjpJZ1E0a3V3dUptNzRMZ2dOZFlkaFVZS1BsRVRHSEoxamQrL1k3YzY5Wm5YZUNFZVpOTmRxbGxudkVZcld3WWFmVEc1aUdlcjhSOXlGaWJ5U2tpZXNWQzR0eklJL0xRZlhDUFI4OVRqdEFab2VsQkRySnZWUU5mZkVranhJaFNPdw==';
+const displayPerPage = '10, 25, 50';
 /**
  * default settings for ajax client
  */
@@ -26,32 +21,25 @@ axios.defaults.headers.common['Authorization'] = 'basic ' + accessToken;
  * Default User Picture
  */
 var defaultUserPicture = {
-    'sizes': [{
-      "width": 30,
-      "height": 30,
-      "link": "//via.placeholder.com/30x30?text=N/A"
-    }, {
-      "width": 75,
-      "height": 75,
-      "link": "//via.placeholder.com/75x75?text=N/A"
-    }, {
-      "width": 100,
-      "height": 100,
-      "link": "//via.placeholder.com/100x100?text=N/A"
-    }, {
-      "width": 300,
-      "height": 300,
-      "link": "//via.placeholder.com/300x300?text=N/A"
-    }]
-  }
-  /**
-   * post card component
-   */
+  'sizes': [{
+    "width": 30,
+    "height": 30,
+    "link": "//via.placeholder.com/30x30?text=N/A"
+  }, {
+    "width": 75,
+    "height": 75,
+    "link": "//via.placeholder.com/75x75?text=N/A"
+  }, {
+    "width": 100,
+    "height": 100,
+    "link": "//via.placeholder.com/100x100?text=N/A"
+  }, {
+    "width": 300,
+    "height": 300,
+    "link": "//via.placeholder.com/300x300?text=N/A"
+  }]
+}
 
-Vue.component('card', {
-  template: '<div class="media" ref="card">' + '' + '</div>',
-  props: ['dataImage']
-});
 
 var app = new Vue({
 
@@ -59,11 +47,18 @@ var app = new Vue({
   // item.user.pictures.sizes['2'].link
   data: {
     currentBranch: 'dev',
+    loading: true,
     feed: [],
-    user: []
+    user: [],
+    pages: [],
+    displayPerPage: _.split(displayPerPage, ', '),
+    displayPage: 10,
+    currentPage: 1,
+    total: 0,
+    filtered:''
   },
   mounted() {
-    this.fetchData(1, 10);
+    this.fetchData(this.currentPage, this.displayPage);
 
   },
   methods: {
@@ -79,10 +74,24 @@ var app = new Vue({
       }).then(function(response) {
         self.feed = response.data.data;
         self.user = _.map(self.feed, 'user');
+        self.pages = response.data.paging;
+        self.loading = false;
+        self.total = response.data.total;
       }).catch(function(error) {
         console.error('Axios : ' + error);
       });
+    },
+    setPage: function(pageNumber) {
+      var self = this;
+      self.currentPage = pageNumber;
+      return self.currentPage;
+    },
+    gotoPage: function(page){
+      this.fetchData(page, this.displayPage);
     }
+    
+    
+
   },
   computed: {
     userPicture: function() {
@@ -90,6 +99,19 @@ var app = new Vue({
       return _.map(self.user, function(elm) {
         return elm.pictures = (elm.pictures === null) ? elm.pictures = defaultUserPicture : elm.pictures;
       });
+    },
+    totalPages: function() {
+      var self = this;
+      return Math.ceil(self.total / self.displayPage);
+    },
+    filtredVideos: function(){
+     let self = this;
+     _.filter(self.user, function(u){
+       console.log(u);
+       self.filtered = u.metadata.connections.likes.total >= 10;
+       return u.metadata.connections.likes.total >= 10;
+      
+     });
     }
   },
   filters: {
@@ -106,8 +128,17 @@ var app = new Vue({
         return moment(String(value)).format('MM/DD/YYYY hh:mm');
       }
     },
-    pseudofy: function(value){
-      return '@'+_.last(_.words(value));
-    }
+    pseudofy: function(value) {
+      return '@' + _.last(_.words(value));
+    },
+    paginate: function(list) {
+      var self = this;
+      self.total = list.length;
+      if (self.currentPage >= self.totalPages) {
+        self.currentPage = self.totalPages - 1;
+      }
+      var index = self.currentPage * self.displayPage;
+      return list.slice(index, index + self.displayPage);
+    },
   }
 });
