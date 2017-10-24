@@ -1,0 +1,10 @@
+.logo {
+    height: 48px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    &-container {
+        height: 90px;
+        width: 100%;
+    }
+}

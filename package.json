@@ -1,0 +1,26 @@
+{
+  "name": "videer",
+  "version": "0.1.0",
+  "private": true,
+  "homepage" : "http://moughamir.github.io/videer",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-render-html": "^0.5.2",
+    "react-scripts": "1.0.14",
+    "react-text-truncate": "^0.12.0"
+  },
+  "scripts": {
+    "start": "HOST=0.0.0.0 PORT=8080 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0"
+  }
+}

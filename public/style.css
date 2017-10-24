@@ -1,0 +1,57 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+    .card {
+        width: 100vw !important;
+    }
+    .user-picture {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.loading {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background: #eceeef;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 10px solid #2c5d79;
+    z-index: 999;
+}
+
+.loading:after {
+    content: '';
+    background: trasparent;
+    width: 140%;
+    height: 140%;
+    position: absolute;
+    border-radius: 100%;
+    top: -20%;
+    left: -20%;
+    opacity: 0.7;
+    box-shadow: rgb(44, 93, 121) -4px -5px 3px -3px;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+
+.current {
+  color: red;
+}
+
+.page-link.first::after {
+  content:'...'
+}
+
+.page-link.last::before {
+  content:'...'
+}
