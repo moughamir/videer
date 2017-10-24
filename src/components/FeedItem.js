@@ -18,7 +18,7 @@ class FeedItem extends Component {
                     <div className="card-block p-2">
                         <div className="media">
                             <a href="">
-                                <img className="user-picture d-flex mr-1 rounded-circle" src="userPicture[index].sizes[1].link" alt="post.user.name" />
+                                <img className="user-picture d-flex mr-1 rounded-circle" src={this.props.post.user.pictures === null ? '//via.placeholder.com/75x75?text=N/A' : this.props.post.user.pictures.sizes[1].link} alt={this.props.post.user.name} />
                             </a>
                             <div className="media-body">
                                 <h5 className="mt-0 card-title">{this.props.post.user.name}</h5>
@@ -59,7 +59,7 @@ class FeedItem extends Component {
                             <li className="nav-item">
                                 <span className="nav-link text-muted">
                                     <i className="fa fa-eye" aria-hidden="true"></i>&nbsp;
-                                    {this.props.post.stats.plays === null ? 'N/A' : null}
+                                    {this.props.post.stats.plays === null ? 'N/A' : this.props.post.stats.plays}
                                 </span>
                             </li>
                         </ul>
