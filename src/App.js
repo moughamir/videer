@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './components/logo.svg';
+import Card from './components/Card';
 import Posts from './components/Posts';
 import axios from 'axios';
 
@@ -44,10 +45,12 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Posts posts={this.state.posts}/>
+      <Posts posts={this.state.posts} />
+        <Card item={Posts} />
       </div>
     );
   }
 }
 
+//48:7 <Posts posts={this.state.posts}/>
 export default App;
