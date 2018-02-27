@@ -1,0 +1,4 @@
+Id              : 740c724db094a13cd5dc6056c3d1fc55fed08dbb
+Secret          : IgQ4kuwuJm74LggNdYdhUYKPlETGHJ1jd+/Y7c69ZnXeCEeZNNdqllnvEYrWwYafTG5iGer8R9yFibySkiesVC4tzII/LQfXCPR89TjtAZoelBDrJvVQNffEkjxIhSOw
+Authorize URL   : https://api.vimeo.com/oauth/authorize
+Access TOken    : https://api.vimeo.com/oauth/access_token

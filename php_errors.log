@@ -1,0 +1,70 @@
+[13-Jul-2017 14:10:55 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 23
+[13-Jul-2017 14:28:26 UTC] PHP Notice:  Undefined variable: requesy in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:28:26 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:28:26 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:28:41 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:28:57 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:28:57 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:29:15 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:29:15 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:29:45 UTC] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:29:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function data() on array in /home/ubuntu/workspace/videer/api/api.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:30:05 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:32:10 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:32:10 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:32:22 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:32:22 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:39:48 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:39:48 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:40:03 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:40:03 UTC] PHP Notice:  Undefined index: data in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 14:41:10 UTC] PHP Fatal error:  Cannot use [] for reading in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 14:52:36 UTC] PHP Notice:  Undefined index: query in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 15:10:25 UTC] PHP Notice:  Undefined index: query in /home/ubuntu/workspace/videer/api/api.php on line 28
+[13-Jul-2017 15:10:57 UTC] PHP Notice:  Undefined variable: search_results in /home/ubuntu/workspace/videer/api/api.php on line 27
+[13-Jul-2017 15:27:51 UTC] PHP Warning:  Unterminated comment starting line 29 in /home/ubuntu/workspace/videer/api/api.php on line 29
+[13-Jul-2017 15:57:23 UTC] PHP Warning:  Unterminated comment starting line 29 in /home/ubuntu/workspace/videer/api/api.php on line 29
+[13-Jul-2017 15:57:23 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/ubuntu/workspace/videer/api/api.php on line 45
+[13-Jul-2017 15:57:47 UTC] PHP Warning:  Unterminated comment starting line 29 in /home/ubuntu/workspace/videer/api/api.php on line 29
+[13-Jul-2017 15:57:47 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/ubuntu/workspace/videer/api/api.php on line 45
+[13-Jul-2017 15:59:43 UTC] PHP Warning:  Unterminated comment starting line 29 in /home/ubuntu/workspace/videer/api/api.php on line 29
+[13-Jul-2017 15:59:45 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 16:02:38 UTC] PHP Warning:  Unterminated comment starting line 29 in /home/ubuntu/workspace/videer/api/api.php on line 29
+[13-Jul-2017 16:02:40 UTC] PHP Notice:  Undefined offset: 0 in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 16:03:53 UTC] PHP Warning:  Unterminated comment starting line 29 in /home/ubuntu/workspace/videer/api/api.php on line 29
+[13-Jul-2017 16:03:55 UTC] PHP Notice:  Undefined index: data in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 16:04:41 UTC] PHP Warning:  Unterminated comment starting line 29 in /home/ubuntu/workspace/videer/api/api.php on line 29
+[13-Jul-2017 16:04:43 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 26
+[13-Jul-2017 16:40:55 UTC] PHP Warning:  Unterminated comment starting line 33 in /home/ubuntu/workspace/videer/api/api.php on line 33
+[13-Jul-2017 16:40:56 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 30
+[13-Jul-2017 17:03:52 UTC] PHP Notice:  Array to string conversion in /home/ubuntu/workspace/videer/api/api.php on line 30
+[13-Jul-2017 17:20:19 UTC] PHP Warning:  Unterminated comment starting line 41 in /home/ubuntu/workspace/videer/api/api.php on line 41
+[13-Jul-2017 17:20:20 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:20:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/videer/api/api.php on line 35
+[13-Jul-2017 17:20:38 UTC] PHP Warning:  Unterminated comment starting line 41 in /home/ubuntu/workspace/videer/api/api.php on line 41
+[13-Jul-2017 17:20:40 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:20:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/videer/api/api.php on line 35
+[13-Jul-2017 17:22:42 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:22:43 UTC] PHP Notice:  Undefined index: data in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:22:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/videer/api/api.php on line 34
+[13-Jul-2017 17:23:09 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:23:10 UTC] PHP Notice:  Undefined index: data in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:23:25 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:23:27 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:23:34 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:23:36 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:23:46 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:23:47 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:24:05 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:24:07 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/ubuntu/workspace/videer/api/api.php on line 32
+[13-Jul-2017 17:24:57 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:25:14 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:25:39 UTC] PHP Warning:  Unterminated comment starting line 40 in /home/ubuntu/workspace/videer/api/api.php on line 40
+[13-Jul-2017 17:26:38 UTC] PHP Warning:  Unterminated comment starting line 41 in /home/ubuntu/workspace/videer/api/api.php on line 41
+[13-Jul-2017 17:42:57 UTC] PHP Warning:  Unterminated comment starting line 33 in /home/ubuntu/workspace/videer/api/api.php on line 33
+[13-Jul-2017 17:42:59 UTC] PHP Notice:  Undefined variable: r in /home/ubuntu/workspace/videer/api/api.php on line 31
+[13-Jul-2017 17:43:52 UTC] PHP Warning:  Unterminated comment starting line 34 in /home/ubuntu/workspace/videer/api/api.php on line 34
+[13-Jul-2017 17:43:54 UTC] PHP Notice:  Undefined variable: r in /home/ubuntu/workspace/videer/api/api.php on line 31
